@@ -3,16 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { MenuComponent } from './shared/components/menu/menu.component';
+import { HomeComponent } from './home/components/home/home.component';
+import { ConceptsComponent } from './concepts/components/concepts/concepts.component';
+import { ContactsComponent } from './contacts/components/contacts/contacts.component';
 
+// Decorator
+// Main Switching Box
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    MenuComponent,
+    HomeComponent,
+    ConceptsComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] // AppModule is bootstrapping a comp -- AppComponent
 })
 export class AppModule { }
