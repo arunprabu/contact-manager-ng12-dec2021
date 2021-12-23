@@ -1,1 +1,69 @@
-<p>concepts works!</p>
+<div class="container-fluid">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" data-bs-toggle="tab" data-bs-target="#basic-databinding" role="tab"
+        aria-controls="basic-databinding" aria-selected="true">Basic Data Binding</a>
+      <a class="nav-item nav-link" data-bs-toggle="tab" data-bs-target="#directives-tab" role="tab"
+        aria-controls="directives-tab" aria-selected="false">Directives</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+
+    <div class="tab-pane fade show active" id="basic-databinding" role="tabpanel"
+      aria-labelledby="basic-databinding-tab">
+      <h2>Basic Data Binding</h2>
+
+      <h3>1. Interpolation</h3>
+      <p>App name is: {{appName}} </p>
+      <p>Dev Team Size: {{teamSize}}</p>
+      <input type="text" value="{{appName}}">
+
+      <hr>
+
+      <h3>2. Property Binding</h3>
+      <p>Company Name: {{companyName}}</p> <!-- String Interpolation-->
+      <input type="text" [value]="companyName"> <br><!-- Prop Binding-->
+      <a [href]="websiteURL">Goto My Company Website</a>
+      <hr>
+
+      <h3>3. Event Binding</h3>
+      <button type="button" 
+        onclick="handleClickMe()">Click Me -- won't work -- check console</button>
+      <br />
+      <button type="button" 
+      (click)="handleClickMe($event)">Click Me</button>
+
+      <hr>
+      <h3>Two way Binding</h3>
+      <p>{{courseName}}</p> <!-- interpolation -->
+      <input type="text" [value]="courseName"> <!-- prop binding -->
+      <br><br>
+      <input type="text" [(ngModel)]="courseName"> <!-- Two way binding -->
+
+    </div>
+
+    <div class="tab-pane fade" id="directives-tab" role="tabpanel" aria-labelledby="directives-tab">
+      <h2>Directives</h2>
+
+      <h3>*ngIf</h3>
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        As loggedin user, you can access premium features
+      </div>
+
+      <div class="alert alert-danger" *ngIf="!isLoggedIn">
+        Pls login
+      </div>
+      <!-- TODO: Learn about else in angular -->
+
+      <hr>
+      <ul>
+        <li *ngFor="let skill of skillList">{{skill}}</li>
+        <!-- TODO: learn about finding index in the above *ngFor -->
+      </ul>
+
+      <!-- TODO: learn about ngSwitch -->
+
+    </div>
+
+  </div>
+</div>
