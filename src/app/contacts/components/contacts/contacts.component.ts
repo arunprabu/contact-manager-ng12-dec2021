@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contacts',
@@ -6,11 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  contactList: any[] = [];
 
-  ngOnInit(): void {
+  constructor( private contactService: ContactService) {
+    console.log("1. Inside Constructor");
+  }
+
+  ngOnInit(): void { // lifecycle hook
+    // Whenever the comp is coming into view this life cycle hook will be called
+    // ideal place for you to send ajax calls
+    console.log('2. Inside ngOnInit');
+    this.contactService.getContacts()
+      .subscribe( (res: any) => {
+        console.log(res);
+        this.contactList = res;
+      });
+  }
+
+  ngOnDestroy(): void {
+    // will be called whenever the comp goes out of view.
+    // ideal place for you to clear the data, remove interval, remove timeout, unsubscribe
+    console.log('Inside ngOnDestroy');
+    
   }
 
 }
