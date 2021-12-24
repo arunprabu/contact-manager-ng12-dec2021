@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { MenuComponent } from './shared/components/menu/menu.component';
 import { HomeComponent } from './home/components/home/home.component';
 import { ConceptsComponent } from './concepts/components/concepts/concepts.component';
 import { ContactsComponent } from './contacts/components/contacts/contacts.component';
+import { AddContactComponent } from './contacts/components/add-contact/add-contact.component';
 
 // Decorator
 // Main Switching Box
@@ -21,12 +22,14 @@ import { ContactsComponent } from './contacts/components/contacts/contacts.compo
     MenuComponent,
     HomeComponent,
     ConceptsComponent,
-    ContactsComponent
+    ContactsComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent] // AppModule is bootstrapping a comp -- AppComponent
